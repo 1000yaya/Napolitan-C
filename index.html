@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내 웹툰 제목</title>
+    <title>나폴리탄</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             padding: 0;
-            background-color: #121212; /* 웹툰에 어울리는 어두운 배경 */
+            background-color: #121212;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
-        /* 모바일 인트로 화면 (GIF 도입부 + 시작 버튼) */
         #intro-overlay {
             position: fixed;
             top: 0;
@@ -54,11 +50,9 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
         }
-
-        /* 웹툰 본문 컨테이너 (스마트폰 세로 폭에 최적화) */
         .webtoon-container {
             width: 100%;
-            max-width: 650px; /* 모바일/PC 모두 보기 좋은 최대 폭 */
+            max-width: 650px;
             display: flex;
             flex-direction: column;
         }
@@ -67,10 +61,8 @@
             height: auto;
             display: block;
             margin: 0;
-            padding: 0; /* 컷 사이의 미세한 공백 제거 */
+            padding: 0;
         }
-
-        /* 우측 하단 음악 켜기/끄기 버튼 */
         #music-toggle {
             position: fixed;
             bottom: 20px;
@@ -93,26 +85,22 @@
 </head>
 <body>
 
-    <!-- 도입부 (GIF + 버튼) -->
     <div id="intro-overlay">
-        <img src="images/intro.gif" alt="웹툰 도입">
+        <img src="1.gif" alt="웹툰 도입">
         <button onclick="startWebtoon()">🎵 BGM과 함께 감상하기</button>
     </div>
 
-    <!-- 배경음악 (반복 재생) -->
     <audio id="bgm" loop preload="auto">
-        <source src="audio/bgm.mp3" type="audio/mp3">
+        <source src="Napolitano.mp3" type="audio/mp3">
     </audio>
 
-    <!-- 음악 제어 버튼 (처음엔 숨김) -->
     <button id="music-toggle" onclick="toggleMusic()" style="display: none;">🔊</button>
 
-    <!-- 웹툰 내용 (PNG 4장) -->
     <div class="webtoon-container">
-        <img src="images/cut_01.png" alt="웹툰 컷 1">
-        <img src="images/cut_02.png" alt="웹툰 컷 2">
-        <img src="images/cut_03.png" alt="웹툰 컷 3">
-        <img src="images/cut_04.png" alt="웹툰 컷 4">
+        <img src="C01.png" alt="웹툰 컷 1">
+        <img src="C02.png" alt="웹툰 컷 2">
+        <img src="C03.png" alt="웹툰 컷 3">
+        <img src="C04.png" alt="웹툰 컷 4">
     </div>
 
     <script>
@@ -128,7 +116,6 @@
                 }, 400);
                 musicToggleBtn.style.display = 'flex';
             }).catch(error => {
-                // 모바일 절전 모드 등으로 자동 재생 제한이 걸릴 경우의 예외 처리
                 overlay.style.opacity = '0';
                 setTimeout(() => {
                     overlay.style.display = 'none';
